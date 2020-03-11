@@ -1,0 +1,21 @@
+# ##################################################################################################
+#
+# 3/4/2020
+#
+# ##################################################################################################
+
+    1. Add FreeMarker to template
+    2. Aggregate Action items at the top of report
+    3. Create mechanisms for tracking PTO hours
+    4. Highlight low/high hour logging
+    5. Allow user to select sprint
+
+    -------------------
+    - Future / Future
+    -------------------
+
+    - Move to spring boot
+    - Add front-end (Vue?)
+    - Add data store
+    - output CSV for domo
+
