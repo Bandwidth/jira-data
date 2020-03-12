@@ -3,11 +3,11 @@ package jira.view;
 import java.util.List;
 import java.util.Map;
 
-import jira.model.report.Assignee;
-import jira.model.report.JiraInfo;
-import jira.model.report.SprintInfo;
-import jira.model.report.StatusHistory;
-import jira.service.JiraDataUtil;
+import jira.dto.Assignee;
+import jira.dto.JiraInfo;
+import jira.dto.SprintInfo;
+import jira.dto.StatusHistory;
+import jira.util.JiraDataUtil;
 
 public class ConsoleText {
 

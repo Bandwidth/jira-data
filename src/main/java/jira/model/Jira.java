@@ -1,4 +1,4 @@
-package jira.model.api;
+package jira.model;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +20,5 @@ public class Jira {
     private Map<String, Integer> timeLoggedMap;
     private Fields fields;
     private Changelog changelog;
-
 
 }

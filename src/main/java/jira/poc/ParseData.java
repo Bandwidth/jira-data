@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
-import jira.data.JiraWebApiData;
+import jira.repository.JiraApiDao;
 import kong.unirest.json.JSONArray;
 import kong.unirest.json.JSONObject;
 
@@ -19,7 +19,7 @@ public class ParseData {
 
     public void generateSprintReport(String sprintName){
 
-        JiraWebApiData jiraData = new JiraWebApiData();
+        JiraApiDao jiraData = new JiraApiDao();
         JSONArray jiraJsonArray = jiraData.getSprintJiraJsonArray(sprintName);
         Map<String, Integer> sprintLoggedTimePerDevMap = new HashMap<>();
 

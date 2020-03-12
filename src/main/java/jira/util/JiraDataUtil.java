@@ -1,4 +1,4 @@
-package jira.service;
+package jira.util;
 
 public class JiraDataUtil {
 

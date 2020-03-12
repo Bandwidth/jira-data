@@ -1,4 +1,4 @@
-package jira.model.report;
+package jira.dto;
 
 import java.util.HashMap;
 import java.util.List;

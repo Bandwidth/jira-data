@@ -16,16 +16,17 @@ import org.apache.logging.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jira.data.JiraWebApiData;
-import jira.model.api.History;
-import jira.model.api.Item;
-import jira.model.api.Jira;
-import jira.model.api.Person;
-import jira.model.api.Worklog;
-import jira.model.report.Assignee;
-import jira.model.report.JiraInfo;
-import jira.model.report.SprintInfo;
-import jira.model.report.StatusHistory;
+import jira.repository.JiraApiDao;
+import jira.model.History;
+import jira.model.Item;
+import jira.model.Jira;
+import jira.model.Person;
+import jira.model.Worklog;
+import jira.dto.Assignee;
+import jira.dto.JiraInfo;
+import jira.dto.SprintInfo;
+import jira.dto.StatusHistory;
+import jira.util.JiraDataUtil;
 import jira.view.ConsoleText;
 import jira.view.EmailHtml;
 
@@ -152,9 +153,9 @@ public class JiraDataTransformer {
     }
 
 
-    private jira.model.report.Person buildStatusChangePerson(Person changePerson){
+    private jira.dto.Person buildStatusChangePerson(Person changePerson){
 
-        jira.model.report.Person person = new jira.model.report.Person();
+        jira.dto.Person person = new jira.dto.Person();
         person.setAssigneeName(changePerson.getDisplayName());
         person.setAssigneeEmail(changePerson.getEmailAddress());
 
@@ -215,7 +216,7 @@ public class JiraDataTransformer {
 
     private Jira[] getJqlJiras(String jql){
 
-        JiraWebApiData jiraWebApiData = new JiraWebApiData();
+        JiraApiDao jiraWebApiData = new JiraApiDao();
         String jiraData = jiraWebApiData.getSprintJiraJsonString(jql);
 
         ObjectMapper objectMapper = new ObjectMapper();

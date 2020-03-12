@@ -1,13 +1,14 @@
-package jira.data;
+package jira.repository;
 
 import java.util.Properties;
 
+import jira.util.Configs;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import kong.unirest.json.JSONArray;
 
-public class JiraWebApiData {
+public class JiraApiDao {
 
 
     private static final String USER = "rgonzales@bandwidth.com";

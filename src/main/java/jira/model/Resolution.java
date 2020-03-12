@@ -1,4 +1,4 @@
-package jira.model.api;
+package jira.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -8,9 +8,8 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
-public class Worklog {
+public class Resolution {
 
-    private Person author;
-    private int timeSpentSeconds;
-    private String timeSpent;
+    private String name;
+
 }

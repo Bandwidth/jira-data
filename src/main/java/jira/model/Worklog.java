@@ -1,6 +1,4 @@
-package jira.model.api;
-
-import java.sql.Timestamp;
+package jira.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -10,11 +8,9 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
-public class History {
+public class Worklog {
 
-    private int id;
     private Person author;
-    private Timestamp created;
-    private Item[] items;
-
+    private int timeSpentSeconds;
+    private String timeSpent;
 }

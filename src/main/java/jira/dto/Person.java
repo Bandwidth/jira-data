@@ -1,4 +1,4 @@
-package jira.model.report;
+package jira.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,6 @@
-package jira.model.report;
+package jira.dto;
 
 import java.sql.Timestamp;
-import java.util.Objects;
 
 import lombok.Getter;
 import lombok.Setter;

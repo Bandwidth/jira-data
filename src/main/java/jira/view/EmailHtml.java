@@ -14,12 +14,12 @@ import javax.mail.MessagingException;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import jira.model.report.Assignee;
-import jira.model.report.JiraInfo;
-import jira.model.report.SprintInfo;
-import jira.model.report.StatusHistory;
+import jira.dto.Assignee;
+import jira.dto.JiraInfo;
+import jira.dto.SprintInfo;
+import jira.dto.StatusHistory;
 import jira.service.BandwidthGmail;
-import jira.service.JiraDataUtil;
+import jira.util.JiraDataUtil;
 
 public class EmailHtml {
 

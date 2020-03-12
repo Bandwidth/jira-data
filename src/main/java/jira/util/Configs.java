@@ -1,4 +1,4 @@
-package jira.data;
+package jira.util;
 
 import java.io.IOException;
 import java.io.InputStream;

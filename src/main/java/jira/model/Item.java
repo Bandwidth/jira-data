@@ -1,4 +1,4 @@
-package jira.model.api;
+package jira.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
