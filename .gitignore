@@ -30,3 +30,7 @@ src/main/resources/credentials.json
 .gradle/
 .idea/sonarlint/
 .idea/workspace.xml
+tokens/StoredCredential
+.idea/shelf/
+.idea/sonarIssues.xml
+
