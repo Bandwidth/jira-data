@@ -11,6 +11,8 @@ import jira.util.JiraDataUtil;
 
 public class ConsoleText {
 
+    // did this for general debugging and building initial data
+
     private static final int OFFSET = 20;
 
     public static void printSprintInfo(SprintInfo sprintInfo){

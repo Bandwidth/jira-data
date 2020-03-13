@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 public class SprintInfo {
 
+    private String JIRA_LINK = "https://bandwidth-jira.atlassian.net/browse/";
 
     private String sprintName;
     private List<JiraInfo> jiraInfoList;
