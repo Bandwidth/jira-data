@@ -3,42 +3,43 @@ package jira.view;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.security.GeneralSecurityException;
-import java.util.List;
-import java.util.Map;
 
 import javax.mail.MessagingException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import jira.dto.Assignee;
-import jira.dto.JiraInfo;
 import jira.dto.SprintInfo;
-import jira.dto.StatusHistory;
 import jira.service.BandwidthGmail;
-import jira.util.JiraDataUtil;
 
 public class EmailHtml {
 
+    private static Logger log = LogManager.getRootLogger();
 
-    public void emailSprintInfo(SprintInfo sprintInfo) throws GeneralSecurityException, IOException, MessagingException {
+    public void emailSprintInfo(SprintInfo sprintInfo) {
 
         Configuration cfg = new Configuration();
         cfg.setClassForTemplateLoading(EmailHtml.class,"../../../resources/templates");
-        Template template = cfg.getTemplate("report.ftl");
 
         Writer writer = new StringWriter();
         try {
+            Template template = cfg.getTemplate("report.ftl");
             template.process(sprintInfo,writer);
-        } catch (TemplateException e) {
-            e.printStackTrace();
+
+        } catch (TemplateException | IOException e) {
+            log.error("Email Template Composition Error: ",e);
         }
 
         BandwidthGmail gmail = new BandwidthGmail();
-        gmail.sendEmail(writer.toString());
+        try {
+            gmail.sendEmail(writer.toString());
+        } catch (IOException | GeneralSecurityException | MessagingException e) {
+            log.error("GMail Sending Error: ",e);
+        }
     }
 
 }

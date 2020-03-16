@@ -18,6 +18,7 @@ public class GenerateReportData {
         sprintName = "2020 - Sprint 09 Earthworm Jim"; // 15 points
         sprintName = "2020 - Sprint 10 Funky Kong CT";
         sprintName = "2020.11 Fox (HT)";
+        sprintName = "2020.12 Goomba (CT)";
 
 
         JiraDataTransformer dataTransformer = new JiraDataTransformer();

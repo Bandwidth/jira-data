@@ -17,7 +17,6 @@ public class SprintInfo {
     private List<JiraInfo> jiraInfoList;
     private Map<String, Integer> assigneeSecondsLoggedMap = new HashMap<>();
     private boolean printJiraHours;
-
-
+    private ActionItems actionItems;
 
 }

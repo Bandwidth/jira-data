@@ -34,12 +34,21 @@
     <td>${key}</td>
     </tr>
 
-    <tr>
-    <td></td>
-    <td></td>
-    <td class="colTwo">Time :</td>
+
+
     <#assign hours = jiraInfo.assigneeTimeLoggedMap[key].secondsLogged / (60*60)>
-    <td>${hours} Hours</td>
+
+    <#if hours == 0>
+        <#assign qColor = "bgcolorRed">
+    <#else>
+        <#assign qColor = "">
+    </#if>
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="colTwo">Time :</td>
+        <td class="${qColor}">${hours} Hours</td>
     </tr>
 
 </#list>

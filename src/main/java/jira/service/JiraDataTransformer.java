@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.mail.MessagingException;
+import javax.swing.Action;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -16,6 +17,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import jira.dto.ActionItems;
 import jira.repository.JiraApiDao;
 import jira.model.History;
 import jira.model.Item;
@@ -33,7 +35,7 @@ import jira.view.EmailHtml;
 public class JiraDataTransformer {
 
     private static final String QUOTE = "\"" ;
-    private final String MISSING_EPIC = "EPIC MISSING/Please Link an Epic" ;
+    private static final String MISSING_EPIC = "EPIC MISSING/Please Link an Epic" ;
 
     private static Logger log = LogManager.getRootLogger();
 
@@ -41,18 +43,22 @@ public class JiraDataTransformer {
     public void getSprintReport(String sprintName){
 
         SprintInfo sprintInfo = buildSprintReportData(sprintName);
+
+
+        ActionItemAggregator actionItemAggregator = new ActionItemAggregator();
+        ActionItems actionItems = actionItemAggregator.buildActionItems(sprintInfo);
+
         ConsoleText.printSprintInfo(sprintInfo);
-        try {
-            EmailHtml emailHtml = new EmailHtml();
-            emailHtml.emailSprintInfo(sprintInfo);
-        } catch (GeneralSecurityException e) {
-            log.error("gmail security issue : ",e);
-        } catch (IOException e) {
-            log.error("gmail IO issue : ",e);
-        } catch (MessagingException e) {
-            log.error("gmail messaging issue : ",e);
-        }
+
+        EmailHtml emailHtml = new EmailHtml();
+        emailHtml.emailSprintInfo(sprintInfo);
+
     }
+
+
+
+
+
 
     private SprintInfo buildSprintReportData(String sprintName){
 

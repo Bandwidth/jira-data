@@ -22,9 +22,6 @@ public class Assignee {
     }
 
     private AssigneeType assigneeType = AssigneeType.EMPTY;
-//    private String assigneeName = "";
-//    private String assigneeKey = "";
-//    private String assigneeEmail = "";
     private Person person = new Person();
     private int secondsLogged = 0;
 

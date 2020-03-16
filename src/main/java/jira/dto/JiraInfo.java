@@ -11,7 +11,6 @@ import lombok.Setter;
 @Setter
 public class JiraInfo {
 
-
     private String jiraKey;
     private String summary;
     private String epicLink;
